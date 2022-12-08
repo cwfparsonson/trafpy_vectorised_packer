@@ -1,0 +1,28 @@
+# https://docs.wandb.ai/guides/sweeps/configuration
+
+program: packer_speed_test.py
+#method: bayes
+method: grid
+metric:
+  goal: minimize
+  name: summary/packing_time_s
+
+parameters:
+
+    generator.flow_packer_cls:
+        #value: trafpy.generator.src.packers.flow_packer_v1.FlowPackerV1
+        value: trafpy_vectorised_packer.vectorised_flow_packer.VectorisedFlowPacker
+
+    network.num_eps:
+        #values: [8, 16, 32, 64, 128, 256, 512] # V1
+        values: [8, 16, 32, 64, 128, 256, 512, 1024, 2048] # Vectorised
+
+    experiment.seed:
+        values: [0, 1, 2, 4]
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - --config-path=configs
+  - ${args_no_hyphens}

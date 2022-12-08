@@ -1,0 +1,45 @@
+experiment:
+    name: flow_packing
+    seed: 0
+    path_to_save: '/scratch/datasets/trafpy_ofc_speedup/sims'
+    save_dir: null # placeholder, will be updated
+    profile_time: False
+
+generator:
+    benchmark_name: university
+    min_num_demands: 'auto'
+    min_last_demand_arrival_time: null
+    jensen_shannon_distance_threshold: 0.5
+    #flow_packer_cls: trafpy.generator.src.packers.flow_packer_v1.FlowPackerV1
+    flow_packer_cls: trafpy_vectorised_packer.vectorised_flow_packer.VectorisedFlowPacker
+    check_dont_exceed_one_ep_load: True
+    auto_node_dist_correction: True
+    print_data: True
+
+network:
+    num_eps: 32
+    network_label: null
+    ep_capacity: 1e6
+    #num_racks: null
+    num_racks: 4
+    load: 0.5
+
+#flow_size_dist: null
+flow_size_dist:
+    dist: weibull
+    params:
+        _alpha: 4.7
+        _lambda: 4100
+    return_data: False
+    show_fig: True
+    round_to_nearest: 1
+
+plotting:
+    plot_node_dist_figs: True
+    plot_node_load_dist_figs: False
+
+wandb:
+    init:
+        project: trafpy
+        entity: ong
+

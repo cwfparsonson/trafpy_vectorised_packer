@@ -64,7 +64,8 @@ if __name__ == '__main__':
                 '--verbose',
                 '-v',
                 help='If true, will display any print statements sent to the terminal by the script(s) being ran.',
-                action=argparse.BooleanOptionalAction,
+                # action=argparse.BooleanOptionalAction,
+                action='store_true',
                 default=True,
             )
     args = parser.parse_args()
