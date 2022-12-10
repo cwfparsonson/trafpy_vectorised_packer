@@ -37,10 +37,10 @@ parameters:
     experiment.seed:
         values: [0, 1]
 
-    experiment.network.load:
+    network.load:
         values: [0.5, 0.7, 0.9]
 
-    experiment.network.X:
+    network.X:
         #values: [16, 32]
         values: [2]
 
