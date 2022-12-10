@@ -1,0 +1,26 @@
+experiment:
+    seed: 0
+    path_to_save: '/scratch/datasets/trafpy_pulse_gen/'
+    save_dir: null # placeholder, will be updated
+
+network:
+    X: 2
+    load: 0.5
+
+flow_size_dist:
+    dist: weibull
+    params:
+        _alpha: 4.8
+        _lambda: 2100
+    return_data: False
+    show_fig: False
+    round_to_nearest: 1000
+
+node_dist:
+    sd: 1
+
+wandb:
+    init:
+        project: trafpy
+        entity: ong
+

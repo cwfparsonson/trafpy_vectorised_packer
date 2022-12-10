@@ -1,24 +1,57 @@
 # https://docs.wandb.ai/guides/sweeps/configuration
 
-program: packer_speed_test.py
+#program: packer_speed_test.py # TRAFPY OFC SPEEDUP PAPER
+program: pulse_gen.py # JOSHUA PULSE TRAFFIC GEN
+
 #method: bayes
 method: grid
-metric:
-  goal: minimize
-  name: summary/packing_time_s
 
+## TRAFPY OFC SPEEDUP PAPER
+#metric:
+  #goal: minimize
+  #name: summary/packing_time_s
+
+
+
+
+########################### TRAFPY OFC SPEEDUP PAPER #########################
+#parameters:
+
+    #generator.flow_packer_cls:
+        ##value: trafpy.generator.src.packers.flow_packer_v1.FlowPackerV1
+        #value: trafpy_vectorised_packer.vectorised_flow_packer.VectorisedFlowPacker
+
+    #network.num_eps:
+        ##values: [8, 16, 32, 64, 128, 256, 512] # V1
+        #values: [8, 16, 32, 64, 128, 256, 512, 1024, 2048] # Vectorised
+
+    #experiment.seed:
+        #values: [0, 1, 2, 4]
+
+
+
+
+
+######################## GENERATING PULSE TRAFFIC FOR JOSHUA ###################
 parameters:
-
-    generator.flow_packer_cls:
-        #value: trafpy.generator.src.packers.flow_packer_v1.FlowPackerV1
-        value: trafpy_vectorised_packer.vectorised_flow_packer.VectorisedFlowPacker
-
-    network.num_eps:
-        #values: [8, 16, 32, 64, 128, 256, 512] # V1
-        values: [8, 16, 32, 64, 128, 256, 512, 1024, 2048] # Vectorised
-
     experiment.seed:
-        values: [0, 1, 2, 4]
+        values: [0, 1]
+
+    experiment.network.load:
+        values: [0.5, 0.7, 0.9]
+
+    experiment.network.X:
+        #values: [16, 32]
+        values: [2]
+
+    flow_size_dist.params._lambda:
+        values: [2100, 3100, 4100]
+
+    node_dist.sd:
+        values: [1, 2, 3, 4]
+
+
+
 
 command:
   - ${env}

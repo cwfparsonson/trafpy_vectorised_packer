@@ -17,11 +17,7 @@ generator:
     print_data: True
 
 network:
-    num_eps: 32
-    network_label: null
-    ep_capacity: 1e6
-    #num_racks: null
-    num_racks: 4
+    X: 16
     load: 0.5
 
 #flow_size_dist: null
