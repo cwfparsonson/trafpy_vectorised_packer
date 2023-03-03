@@ -1,7 +1,3 @@
-TrafPy Packing Algorithm Speedup
-================================
-
-
 =====================================================================
 :vertical_traffic_light: TrafPy Packing Algorithm Speedup :racehorse:
 =====================================================================
