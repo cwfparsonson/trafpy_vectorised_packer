@@ -5,7 +5,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-Implementation of the vectorised traffic flow packing algorithm reported in `A Vectorised Packing Algorithm for Efficient Generation of Custom Traffic Matrices <https://arxiv.org/abs/2302.09970>`_
+Implementation of the vectorised traffic flow packing algorithm reported in `A Vectorised Packing Algorithm for Efficient Generation of Custom Traffic Matrices <https://arxiv.org/abs/2302.09970>`_.
 
 **Note:** This algorithm has already been integrated into the full TrafPy open source tool as the default packer for traffic generation - refer to the `main TrafPy GitHub repository <https://github.com/cwfparsonson/trafpy>`_ for documentation and further details on how to use TrafPy traffic generation for your own projects.
 
@@ -25,7 +25,7 @@ In the project's root directory, run::
 
 Then, still in the root directory, install the required packages with conda (env name defined at top of .yaml file)::
 
-    $ conda env create -f requirements/default.yaml
+    $ conda env create -f requirements/default.txt
 
 
 
@@ -36,7 +36,7 @@ First, set the hyperparameters you want to use in
 `scripts/configs/traffic_generation_default.yaml <https://github.com/cwfparsonson/trafpy_vectorised_packer/blob/master/scripts/configs/traffic_generation_default.yaml>`_.
 For example, to use the original packer, set ``flow_packer_cls: trafpy.generator.src.packers.flow_packer_v1.FlowPackerV1``. To use the
 vectorised packer, set ``flow_packer_cls: trafpy_vectorised_packer.vectorised_flow_packer.VectorisedFlowPacker``, which
-will run the new vectorised packer originally written in this repository (N.B. Thise
+will run the new vectorised packer originally written in this repository (N.B. this 
 has now been integrated as the default packer in the TrafPy library as ``trafpy.generator.src.packers.flow_packer_v2.FlowPackerV2``).
 
 Next, from the root directory of where you cloned this repository, run::
@@ -58,7 +58,7 @@ Then, start a new tmux session called ``trafpy_sweep``::
 
     $ tmux new -s trafpy_sweep
 
-Next, inside the ``trafpy_sweep`` tmux session and from the ``scripts/`` directory this cloned repository, run the 
+Next, inside the ``trafpy_sweep`` tmux session and from the ``scripts/`` directory of this cloned repository, run the 
 sweep script with ``n = 2`` parallel sessions and a ``d = 30`` second delay between launching each of these sessions
 to avoid read-write conflicts::
 
