@@ -62,7 +62,7 @@ Next, inside the ``trafpy_sweep`` tmux session and from the ``scripts/`` directo
 sweep script with ``n = 2`` parallel sessions and a ``d = 30`` second delay between launching each of these sessions
 to avoid read-write conflicts::
 
-    $ python scripts/run_wandb_sweep.py -s trafpy_sweep -n 2 -d 30
+    $ python run_wandb_sweep.py -s trafpy_sweep -n 2 -d 30
 
 
 
