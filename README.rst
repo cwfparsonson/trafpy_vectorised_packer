@@ -46,22 +46,3 @@ Next, from the root directory of where you cloned this repository, run::
     $ python scripts/packer_speed_test.py
 
 
-Running a Hyperparameter Sweep
-==============================
-
-This repository makes use of `Weights and Biases <https://wandb.ai/site>`_ for experiment
-tracking and hyperparameter tuning. 
-
-To test the different packers over different traffic generation conditions and
-network sizes, first set the hyperparameters you want to use in
-`scripts/wandb_sweep_config.yaml <https://github.com/cwfparsonson/trafpy_vectorised_packer/blob/master/scripts/wandb_sweep_config.yaml>`_.
-
-Then, start a new tmux session called ``trafpy_sweep``::
-
-    $ tmux new -s trafpy_sweep
-
-Next, inside the ``trafpy_sweep`` tmux session and from the ``scripts/`` directory this cloned repository, run the 
-sweep script with ``n = 2`` parallel sessions and a ``d = 30`` second delay between launching each of these sessions
-to avoid read-write conflicts::
-
-    $ python scripts/run_wandb_sweep.py -s trafpy_sweep -n 2 -d 30
