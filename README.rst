@@ -65,17 +65,3 @@ sweep script with ``n = 2`` parallel sessions and a ``d = 30`` second delay betw
 to avoid read-write conflicts::
 
     $ python scripts/run_wandb_sweep.py -s trafpy_sweep -n 2 -d 30
-
-
-
-Citing this work
-================
-If you find this project or the associated paper useful, please cite our work::
-
-    @article{parsonson2023vectorised,
-        title = {A Vectorised Packing Algorithm for Efficient Generation of Custom Traffic Matrices},
-        journal = {OFC'23: Optical Fiber Communications Conference and Exhibition},
-        year = {2023},
-        url = {https://arxiv.org/abs/2302.09970},
-        author = {Christopher W.F. Parsonson and Joshua L. Benjamin and Georgios Zervas},
-    }
